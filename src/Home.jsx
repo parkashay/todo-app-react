@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
 
-let effectFires = 2;   // useeffect is fired twice i don't know why. please help me lol
 
 if (!(localStorage.todos && localStorage.completed)) {   //if items not available, 
     localStorage.setItem('todos', JSON.stringify([]));  // this creates empty value for todos
@@ -14,12 +13,7 @@ function Home() {
     const [completed, setCompleted] = useState(JSON.parse(localStorage.completed));
     var [count, setCount] = useState(todos.length);
 
-
     useEffect(() => {
-        if (effectFires !== 0) {
-            effectFires = effectFires - 1;   // useEffect is fired twice om first render because of the map functions.
-            return;                         // this if block prevents from firing the useEffect at initial render.
-        }
         localStorage.setItem('todos', JSON.stringify(todos));
         localStorage.setItem('completed', JSON.stringify(completed));
     }, [todos, completed])
