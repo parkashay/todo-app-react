@@ -22,7 +22,8 @@ function Home() {
         setNewTodo(e.target.value);
     }
 
-    const handleAdd = () => {   //adding new todo
+    const handleAdd = (e) => {   //adding new todo
+        e.preventDefault();
         if (newTodo !== '') {
             for (let i = 0; i < todos.length; i++) {
                 if (todos[i] === newTodo) {     //cannot add duplicate todos
@@ -59,10 +60,10 @@ function Home() {
                 You have {count} todos.
             </div>
 
-            <div className='inputgroup'>
+            <form className='inputgroup' onSubmit={(e) => handleAdd(e)}>
                 <input type="text" className='form-control mx-3 bg-dark text-white' value={newTodo} onChange={handleInput} />
-                <button type='button' className='btn btn-light addButton' onClick={() => handleAdd()}>ADD</button>
-            </div>
+                <button type='sbumit' className='btn btn-light addButton'>ADD</button>
+            </form>
 
             {todos.length > 0 ?
                 <div className="todos">
