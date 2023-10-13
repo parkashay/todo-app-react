@@ -1,3 +1,9 @@
 # todo app in react
 
-This may not follow the best practice but does the job lol.
+
+```diff
+++ add todo
+++ mark as completed
+++ delete completed todo
+++ clear all
+```
